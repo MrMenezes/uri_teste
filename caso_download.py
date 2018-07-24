@@ -1,4 +1,5 @@
 import requests
+import codecs
 import sys
 import os
 from bs4 import BeautifulSoup
@@ -55,13 +56,13 @@ def get_test(problem):
             caso = {'entrada': '\n'.join(list(map(str.lstrip, table.findAll("p")[0].text.lstrip().split(
                 '\n')))) + '\n', 'saida': '\n'.join(list(map(str.lstrip, table.findAll("p")[1].text.lstrip().split('\n')))) + '\r\n'}
             casos.append(caso)
-    f = open("casos_" + problem + ".py", "w+")
+    f = codecs.open("casos_" + problem + ".py", "w+", 'utf-8')
     if len(casos) == 0:
         casos = '[]'
     f = open("casos_" + problem + ".py", "w+")
     f.write("#" + title)
     f.write("\n" + "casos = " + str(casos))
-    f.write("\n\n'''Descição:" + unicodetoascii(descricao) + "'''")
+    f.write("\n\n'''Descricao:" + unicodetoascii(descricao) + "'''")
     f.write("\n\n'''Entrada:" + unicodetoascii(entrada) + "'''")
     f.write("\n\n'''Saida:" + unicodetoascii(saida) + "'''")
     f.close()
