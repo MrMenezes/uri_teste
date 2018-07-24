@@ -1,5 +1,6 @@
 import requests
 import sys
+import os
 from bs4 import BeautifulSoup
 
 
@@ -16,17 +17,20 @@ def get_test(problem):
     f = open("casos_" + problem + ".py", "w+")
     f.write("casos = " + str(casos))
     f.close()
-    print('Casos criados com sucesso\n' + casos)
-    h = open(problem + ".py", "a+")
-    default_text = '''
-	 # -*- coding: utf-8 -*-
-	\'''
-	Escreva a sua solução aqui
-	Code your solution here
-	Escriba su solución aquí
-	\'''
-	'''
-    h.write("casos = " + str(casos))
-    h.close()
+    print('Casos criados com sucesso!\n' + str(casos))
+    if not os.path.exists(problem + ".py"):
+        h = open(problem + ".py", "w+")
+        default_text = '''# -*- coding: utf-8 -*-
+\'''
+Escreva a sua solução aqui
+Code your solution here
+Escriba su solución aquí
+\'''
+'''
+        h.write(default_text)
+        h.close()
+        print(problem + '.py\t Criado com sucesso!')
+    else:
+        print(problem + '.py\t Já estava criado!')
 
 get_test(sys.argv[1])
