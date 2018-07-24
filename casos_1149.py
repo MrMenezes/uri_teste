@@ -1,0 +1,1 @@
+casos = [{'entrada': '3 2\n', 'saida': '7\r\n'}, {'entrada': '3 -1 0 -2 2\n', 'saida': '7\r\n'}]

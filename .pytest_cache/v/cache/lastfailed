@@ -1,0 +1,9 @@
+{
+  "teste_1149.py::test_needsfiles": true,
+  "uri_test.py::test": true,
+  "uri_test.py::test[10]": true,
+  "uri_test.py::test[1148]": true,
+  "uri_test.py::test[11]": true,
+  "uri_test.py::test[4]": true,
+  "uri_test.py::test[9]": true
+}
